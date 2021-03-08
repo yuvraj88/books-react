@@ -76,10 +76,7 @@ const App = () => {
               </div>
               <div
                 style={{
-                  // backgroundColor: "#FFFFFF",
-                  // borderRadius: "20px",
                   padding: "20px 0",
-                  // border: "1px solid #ccc",
                   display: "flex",
                   justifyContent: "space-between",
                   textAlign: "center",
@@ -141,9 +138,6 @@ const App = () => {
               </div>
             )}
           </div>
-          {/* Header Nnv */}
-          {/* Nav Menu */}
-          {/* Books Data */}
         </div>
       </BooksContext.Provider>
     </ThemeProvider>
