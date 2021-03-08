@@ -1,0 +1,39 @@
+header,
+.row {
+  display: flex;
+  flex-direction: row; /* aligns all child elements (flex items) in a row */
+  justify-content: space-around;
+
+  align-items: center;
+  margin-top: 20px;
+}
+
+.col {
+  flex: 1;
+  flex-direction: row; /* aligns all child elements (flex items) in a row */
+  justify-content: space-around;
+
+  align-items: center;
+  /* distributes space on the line equally among items */
+}
+.first {
+  display: flex;
+  justify-content: flex-start;
+}
+.first h4 {
+  white-space: nowrap;
+}
+
+.second {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  padding-left: 20px;
+  /* white-space: nowrap; */
+  /* background-color: antiquewhite; */
+  /* width: 100%; */
+
+  /* left: 1%; */
+  /* right: 1%; */
+}
