@@ -1,8 +1,0 @@
-.extand {
-  /* padding-left: 10px; */
-}
-.extand:focus {
-}
-.extand:focus + span {
-  display: none;
-}
