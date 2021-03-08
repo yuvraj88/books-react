@@ -9,7 +9,14 @@ TODO
 
 - Responsive
 - Search Text UI
-- Text Color using Themeing
+- Text Color using Theming for some components
+
+
+Done
+- Search Books by name
+- List View Sorting using Read Percentage
+- Theming using toggle button
+
   npm run start
 
 # books-react
