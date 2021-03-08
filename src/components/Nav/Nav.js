@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import "./nav.css";
 import { BsGrid, BsList } from "react-icons/bs";
 import { BooksContext } from "../../context/BooksContext";
 import styled from "styled-components";
