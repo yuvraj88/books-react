@@ -13,3 +13,16 @@ export const Sidebar = styled.div`
     position: relative;
   }
 `;
+export const Settings = styled.div`
+  border-radius: 20px;
+  padding: 20px 0;
+  border: 1px solid ${({ theme }) => theme.sidebarBackground};
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  margin-top: 10px;
+  align-content: center;
+  :hover {
+    background: #ccc;
+  }
+`;

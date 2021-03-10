@@ -19,7 +19,32 @@ const NavContainer = styled.div`
 `;
 const NacContainerIcons = styled.div`
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-around;
+`;
+const GridIconWithBorder = styled.div`
+  border-radius: 10px;
+  //border: 1px solid ${({ theme }) => theme.iconColor};
+  background: ${({ theme }) => theme.iconColor};
+  margin: auto;
+  margin-right: 10px;
+
+  padding: 15px;
+  :hover {
+    background: ${({ theme }) => theme.iconColor};
+    cursor: pointer;
+  }
+`;
+const GridIconWithoutBorder = styled.div`
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  margin: auto;
+  margin-right: 10px;
+  text-align: center;
+  :hover {
+    background: ${({ theme }) => theme.iconColor};
+    cursor: pointer;
+  }
 `;
 const InputSearch = styled.input`
   width: 50px;
@@ -42,11 +67,12 @@ const InputSearch = styled.input`
     background: url(${Logo}) no-repeat scroll 7px 7px;
     background-position: left;
     padding-left: 50px;
+    outline: none;
   }
 `;
 
-export default function Nav() {
-  const { setMode, setSearch } = useContext(BooksContext);
+export default function Nav(props) {
+  const { setMode, setSearch, mode } = useContext(BooksContext);
 
   const showFiltered = (e) => {
     const { value } = e.target;
@@ -62,29 +88,31 @@ export default function Nav() {
     <NavContainer>
       <h2>Book Library ...</h2>
       <NacContainerIcons>
-        <BsGrid
-          onClick={() => setMode("grid")}
-          size={24}
-          style={{
-            padding: "10px",
-            borderRadius: "10px",
-            border: `1px solid ${({ theme }) => theme.toggleBorder}`,
-            backgroundColor: `${({ theme }) => theme.toggleBorder}`,
-            marginRight: "10px",
-          }}
-        />
-        <BsList
-          onClick={() => setMode("list")}
-          size={24}
-          style={{
-            padding: "10px",
-            borderRadius: "10px",
-            border: `1px solid ${({ theme }) => theme.background}`,
-            backgroundColor: `${({ theme }) => theme.background}`,
-            marginRight: "10px",
-          }}
-        />
-
+        {mode === "grid" ? (
+          <>
+            <GridIconWithBorder>
+              <BsGrid onClick={() => setMode("grid")} />
+            </GridIconWithBorder>
+            <GridIconWithoutBorder>
+              <BsList onClick={() => setMode("list")} />
+            </GridIconWithoutBorder>
+          </>
+        ) : (
+          <>
+            <GridIconWithoutBorder>
+              <BsGrid onClick={() => setMode("grid")} />
+            </GridIconWithoutBorder>
+            <GridIconWithBorder>
+              <BsList onClick={() => setMode("list")} />
+            </GridIconWithBorder>
+          </>
+        )}
+        {/* <GridIconWithBorder>
+          <BsGrid onClick={() => setMode("grid")} size={18} />
+        </GridIconWithBorder>
+        <GridIconWithBorder>
+          <BsList onClick={() => setMode("list")} size={18} />
+        </GridIconWithBorder> */}
         <InputSearch
           type="search"
           // icon={}
@@ -92,8 +120,6 @@ export default function Nav() {
             showFiltered(e);
           }}
         />
-
-        {/* <input className="extand" /> */}
       </NacContainerIcons>
     </NavContainer>
   );

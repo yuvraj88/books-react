@@ -36,7 +36,7 @@ const ReadPercentage = styled.div`
 `;
 const Genre = styled.div`
   background: #000;
-  opacity: 0.7;
+  opacity: 0.8;
   // height: 15px;
   padding: 10px;
   border-radius: 5px;
@@ -46,6 +46,8 @@ const Genre = styled.div`
   right: 16px;
   font-size: 14px;
   text-align: center;
+  font-weight: bold;
+  color: white;
 `;
 export const Book = (props) => {
   const { modal, setModal, setBookInfo } = useContext(BooksContext);

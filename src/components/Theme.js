@@ -2,9 +2,10 @@ export const lightTheme = {
   body: "#FFF",
   text: "#363537",
   toggleBorder: "#FFF",
-  background: "#363537",
+  background: "#FFFFFF",
   sidebarBackground: "#f0f0f0",
-  iconColor: "#ccc",
+  iconColor: "#F0F0F0",
+  bookCount: "#1F1F1F",
 };
 export const darkTheme = {
   body: "#363537",
@@ -13,4 +14,5 @@ export const darkTheme = {
   background: "#000",
   sidebarBackground: "#1F1F1F",
   iconColor: "#fff",
+  bookCount: "#F9F9F9",
 };
