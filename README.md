@@ -6,16 +6,16 @@ to install all the packages and this app is a mix of styled components, external
 P.S this site is not optimized for mobile devices, Still working on it.
 
 TODO
-
-- Responsive
-- Search Text UI
-- Text Color using Theming for some components
+Nothing for now 🙏🏼
 
 
 Done
 - Search Books by name
 - List View Sorting using Read Percentage
 - Theming using toggle button
+- Responsive
+- Search Text UI
+- Text Color using Theming for some components
 
   npm run start
 
