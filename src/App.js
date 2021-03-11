@@ -1,4 +1,13 @@
-import { Sidebar, Settings } from "./components/Sidebar/Sidebar";
+import {
+  Sidebar,
+  Settings,
+  SidebarDataBottom,
+  Container,
+  SidebarData,
+  SettingsTitle,
+  SettingsMobile,
+  SettingsMobileInner,
+} from "./components/Sidebar/Sidebar";
 import { AiOutlinePlusCircle } from "react-icons/ai";
 import { CgDarkMode } from "react-icons/cg";
 import { FiPlayCircle } from "react-icons/fi";
@@ -43,7 +52,7 @@ const App = () => {
       <BooksContext.Provider value={value}>
         <div className="app">
           <Sidebar>
-            <div style={{ marginLeft: "15px", marginRight: "15px" }}>
+            <SidebarData>
               <h3>Library</h3>
               <div
                 style={{
@@ -96,20 +105,20 @@ const App = () => {
                   alignContent: "center",
                 }}
               >
-                <div style={{ marginLeft: "10px" }}>
+                <div
+                  style={{
+                    marginLeft: "10px",
+                    display: "flex",
+                    alignItems: "center",
+                  }}
+                >
                   <AiOutlinePlusCircle size={20} />
                   <span style={{ marginRight: "10px" }}></span> Add New Book
                 </div>
               </div>
-            </div>
-            <div
-              style={{
-                marginLeft: "15px",
-                marginRight: "15px",
-                marginTop: "100px",
-              }}
-            >
-              <h3>Settings</h3>
+            </SidebarData>
+            <SidebarDataBottom>
+              <SettingsTitle>Settings</SettingsTitle>
               <Settings onClick={themeToggler}>
                 <div
                   style={{
@@ -123,33 +132,48 @@ const App = () => {
                   Dark Mode
                 </div>
 
-                <div>
+                <div
+                  style={{
+                    borderRadius: "40px",
+                    marginRight: "10px",
+                    padding: "5px 10px",
+                  }}
+                >
                   <Switch
                     onChange={themeToggler}
-                    checked={theme === "light" ? true : false}
-                    onColor="#86d3ff"
-                    onHandleColor="#2693e6"
+                    checked={theme === "light" ? false : true}
+                    onColor={
+                      theme === "dark"
+                        ? darkTheme.switchOn
+                        : lightTheme.switchOn
+                    }
                     handleDiameter={8}
                     uncheckedIcon={false}
                     checkedIcon={false}
-                    boxShadow="0px 1px 5px rgba(0, 0, 0, 0.6)"
-                    activeBoxShadow="0px 0px 1px 10px rgba(0, 0, 0, 0.2)"
                     height={10}
                     width={24}
                     className="react-switch"
                     id="material-switch"
                   />
-
-                  {/* <label className="switch">
-                    <input type="checkbox" onChange={themeToggler} />
-                    <span className="slider round"></span>
-                  </label> */}
                 </div>
               </Settings>
-            </div>
+              <SettingsMobile>
+                <SettingsMobileInner>
+                  <CgDarkMode
+                    size={26}
+                    onClick={themeToggler}
+                    color={
+                      mode === "light"
+                        ? ({ theme }) => theme.iconColor
+                        : ({ theme }) => theme.iconColor
+                    }
+                  />
+                </SettingsMobileInner>
+              </SettingsMobile>
+            </SidebarDataBottom>
           </Sidebar>
 
-          <div style={{ marginLeft: "300px" }}>
+          <Container>
             <Nav mode={mode} />
             {modal && <BookModal />}
             {mode === "grid" ? (
@@ -161,7 +185,7 @@ const App = () => {
                 <ListView />
               </div>
             )}
-          </div>
+          </Container>
         </div>
       </BooksContext.Provider>
     </ThemeProvider>

@@ -3,7 +3,13 @@ import { BooksContext } from "../../context/BooksContext";
 import "./ListView.css";
 import { FiChevronDown } from "react-icons/fi";
 import { BsArrowUpDown } from "react-icons/bs";
-
+import styled from "styled-components";
+const ListViewWrapper = styled.div`
+  margin: 40px;
+  @media (max-width: 768px) {
+    margin: 10px;
+  }
+`;
 const ListView = () => {
   const { search, setSearch } = useContext(BooksContext);
   const [sortBooksData, setSort] = useState(false);
@@ -24,28 +30,37 @@ const ListView = () => {
   }, [search, setSearch, sortBooksData]);
 
   return (
-    <div style={{ margin: "40px" }}>
+    <ListViewWrapper>
       <section>
         <header>
-          <div className="col">
+          <div className="col mobile__header">
             Book Title & Author
             <span>
               <BsArrowUpDown />
             </span>
           </div>
-          <div className="col">
+          <div className="col mobile">
             Genre
             <span>
               <BsArrowUpDown />
             </span>
           </div>
-          <div className="col" onClick={sortBooks}>
-            Reading Progress
-            <span>
-              {sortBooksData === false ? <BsArrowUpDown /> : <FiChevronDown />}
-            </span>
+          <div className="col mobile__header" onClick={sortBooks}>
+            {/* <span> */}
+            {sortBooksData === false ? (
+              <>
+                Reading Progress
+                <BsArrowUpDown />
+              </>
+            ) : (
+              <>
+                Reading Progress
+                <FiChevronDown />
+              </>
+            )}
+            {/* </span> */}
           </div>
-          <div className="col">
+          <div className="col mobile">
             Last Opened
             <span>
               <BsArrowUpDown />
@@ -68,7 +83,7 @@ const ListView = () => {
           );
         })}
       </section>
-    </div>
+    </ListViewWrapper>
   );
 };
 const BookData = ({
@@ -97,7 +112,7 @@ const BookData = ({
         setBookInfo(x);
       }}
     >
-      <div className="col first">
+      <div className="col first mobile__header">
         <img
           src={image}
           alt="da"
@@ -113,9 +128,9 @@ const BookData = ({
           </div>
         </div>
       </div>
-      <div className="col">{genre}</div>
-      <div className="col">{read_percentage}</div>
-      <div className="col">{last_opened}</div>
+      <div className="col mobile">{genre}</div>
+      <div className="col mobile__header">{read_percentage}%</div>
+      <div className="col mobile">{last_opened}</div>
     </div>
   );
 };

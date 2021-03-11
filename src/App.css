@@ -6,3 +6,9 @@
 .grid > * {
   flex: 0 0 20%;
 }
+
+@media only screen and (max-width: 768px) {
+  .grid > * {
+    flex: 0 0 50%;
+  }
+}

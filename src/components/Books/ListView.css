@@ -37,3 +37,31 @@ header,
   /* left: 1%; */
   /* right: 1%; */
 }
+@media only screen and (max-width: 768px) {
+  header,
+  .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+  }
+  .first {
+    display: flex;
+    justify-content: space-around;
+  }
+  .col {
+    display: flex;
+    flex-direction: row; /* aligns all child elements (flex items) in a row */
+    justify-content: space-around;
+
+    align-items: center;
+  }
+  .mobile {
+    display: none;
+  }
+  .mobile__header {
+    display: flex;
+    justify-content: flex-end;
+  }
+}

@@ -9,7 +9,7 @@ export const Sidebar = styled.div`
   overflow: auto;
   @media (max-width: 768px) {
     width: 100%;
-    height: auto;
+    // height: 80px;
     position: relative;
   }
 `;
@@ -23,6 +23,53 @@ export const Settings = styled.div`
   margin-top: 10px;
   align-content: center;
   :hover {
-    background: #ccc;
+    background: ${({ theme }) => theme.toggleBorder};
+    cursor: pointer;
+  }
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+export const SettingsMobile = styled.div`
+  display: none;
+  @media (max-width: 768px) {
+    margin: 10px;
+    background-color: ${({ theme }) => theme.sidebarBackground};
+    display: flex;
+    justify-content: flex-end;
+  }
+`;
+export const SettingsMobileInner = styled.div`
+  padding: 10px;
+  border-radius: 10px;
+  background-color: ${({ theme }) => theme.toggleBorder};
+`;
+export const SidebarData = styled.div`
+  margin-left: 15px;
+  margin-right: 15px;
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+export const SidebarDataBottom = styled.div`
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-top: 100px;
+  @media (max-width: 768px) {
+    width: 100%;
+    margin: 0px;
+  }
+`;
+export const SettingsTitle = styled.h3`
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+export const SidebarBottom = styled.div``;
+export const Container = styled.div`
+  margin-left: 300px;
+  @media (max-width: 768px) {
+    width: 100%;
+    margin-left: 0;
   }
 `;

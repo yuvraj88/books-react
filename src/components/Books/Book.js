@@ -14,6 +14,11 @@ const BookStyle = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+  @media (max-width: 768px) {
+    height: 250px;
+    width: 140px;
+    padding: 0.25em 1em;
+  }
 `;
 
 const ReadPercentage = styled.div`

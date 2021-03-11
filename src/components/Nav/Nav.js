@@ -3,7 +3,7 @@ import { BsGrid, BsList } from "react-icons/bs";
 import { BooksContext } from "../../context/BooksContext";
 import styled from "styled-components";
 import { books } from "../../data/books";
-import Logo from "./../../logo.svg";
+import Logo from "./../../search.svg";
 
 const NavContainer = styled.div`
   height: 50px;
@@ -13,11 +13,14 @@ const NavContainer = styled.div`
   text-align: center;
   align-items: center;
   padding: 30px;
-  border-bottom: 1px solid #ccc;
-  border-radius: 10px;
+  border-bottom: 1px solid ${({ theme }) => theme.borderLine};
   margin-left: 2%;
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 10px 0px;
+  }
 `;
-const NacContainerIcons = styled.div`
+const NavContainerIcons = styled.div`
   display: flex;
   justify-content: space-around;
 `;
@@ -27,7 +30,6 @@ const GridIconWithBorder = styled.div`
   background: ${({ theme }) => theme.iconColor};
   margin: auto;
   margin-right: 10px;
-
   padding: 15px;
   :hover {
     background: ${({ theme }) => theme.iconColor};
@@ -63,11 +65,37 @@ const InputSearch = styled.input`
 
   &:focus {
     width: 350px;
-
     background: url(${Logo}) no-repeat scroll 7px 7px;
     background-position: left;
     padding-left: 50px;
     outline: none;
+  }
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+const InputSearchMobile = styled.input`
+  @media (min-width: 1024px) {
+    display: none;
+  }
+  @media (max-width: 768px) {
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border: none;
+    border: solid 1px #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+    background-color: #f0f0f0;
+    background-repeat: no-repeat;
+    background: url(${Logo}) no-repeat scroll 7px 7px;
+    background-position: left;
+    width: 100%;
+    height: 50px;
+    padding-left: 60px;
+    color: ${({ theme }) => theme.textColor};
+    &:focus {
+      outline: none;
+    }
   }
 `;
 
@@ -85,42 +113,54 @@ export default function Nav(props) {
     setSearch(searchBooks);
   };
   return (
-    <NavContainer>
-      <h2>Book Library ...</h2>
-      <NacContainerIcons>
-        {mode === "grid" ? (
-          <>
-            <GridIconWithBorder>
-              <BsGrid onClick={() => setMode("grid")} />
-            </GridIconWithBorder>
-            <GridIconWithoutBorder>
-              <BsList onClick={() => setMode("list")} />
-            </GridIconWithoutBorder>
-          </>
-        ) : (
-          <>
-            <GridIconWithoutBorder>
-              <BsGrid onClick={() => setMode("grid")} />
-            </GridIconWithoutBorder>
-            <GridIconWithBorder>
-              <BsList onClick={() => setMode("list")} />
-            </GridIconWithBorder>
-          </>
-        )}
-        {/* <GridIconWithBorder>
-          <BsGrid onClick={() => setMode("grid")} size={18} />
-        </GridIconWithBorder>
-        <GridIconWithBorder>
-          <BsList onClick={() => setMode("list")} size={18} />
-        </GridIconWithBorder> */}
-        <InputSearch
+    <>
+      <NavContainer>
+        <h2>Book Library ...</h2>
+        <NavContainerIcons>
+          {mode === "grid" ? (
+            <>
+              <GridIconWithBorder>
+                <BsGrid
+                  onClick={() => setMode("grid")}
+                  color={
+                    mode === "light"
+                      ? ({ theme }) => theme.iconColor
+                      : ({ theme }) => theme.iconColor
+                  }
+                  size={20}
+                />
+              </GridIconWithBorder>
+              <GridIconWithoutBorder>
+                <BsList onClick={() => setMode("list")} size={20} />
+              </GridIconWithoutBorder>
+            </>
+          ) : (
+            <>
+              <GridIconWithoutBorder>
+                <BsGrid onClick={() => setMode("grid")} size={20} />
+              </GridIconWithoutBorder>
+              <GridIconWithBorder>
+                <BsList onClick={() => setMode("list")} size={20} />
+              </GridIconWithBorder>
+            </>
+          )}
+          <InputSearch
+            type="search"
+            onChange={(e) => {
+              showFiltered(e);
+            }}
+          />
+        </NavContainerIcons>
+      </NavContainer>
+      <div style={{ padding: "10px" }}>
+        <InputSearchMobile
           type="search"
-          // icon={}
+          placeholder="search for keywords..."
           onChange={(e) => {
             showFiltered(e);
           }}
         />
-      </NacContainerIcons>
-    </NavContainer>
+      </div>
+    </>
   );
 }
