@@ -15,7 +15,7 @@ export const books = [
     image:
       "https://images.unsplash.com/photo-1614680889612-d82e69f49ea2?ixid=MXwxMjA3fDB8MHx0b3BpYy1mZWVkfDF8Ym84alFLVGFFMFl8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
     genre: "Love story",
-    last_opened: "17 hours ago",
+    last_opened: "Date.now() - 24 * 60 * 60 * 1000",
   },
   {
     id: 2,
@@ -34,7 +34,7 @@ export const books = [
     image:
       "https://images.unsplash.com/photo-1528091958014-be79e761499e?ixid=MXwxMjA3fDB8MHx0b3BpYy1mZWVkfDl8Ym84alFLVGFFMFl8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
     genre: "Humour",
-    last_opened: "17 hours ago",
+    last_opened: "Date.now() - 24 * 60 * 60 * 1000",
   },
   {
     id: 3,
@@ -52,7 +52,7 @@ export const books = [
     image:
       "https://images.unsplash.com/photo-1604346782646-13dac014c258?ixid=MXwxMjA3fDB8MHx0b3BpYy1mZWVkfDJ8Ym84alFLVGFFMFl8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
     genre: "Horror",
-    last_opened: "17 hours ago",
+    last_opened: "Date.now() - 24 * 60 * 60 * 1000",
   },
   {
     id: 4,
@@ -71,7 +71,7 @@ export const books = [
     image:
       "https://images.unsplash.com/photo-1604346782646-13dac014c258?ixid=MXwxMjA3fDB8MHx0b3BpYy1mZWVkfDJ8Ym84alFLVGFFMFl8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
     genre: "Drama",
-    last_opened: "17 hours ago",
+    last_opened: "Date.now() - 24 * 60 * 60 * 1000",
   },
   {
     id: 5,
@@ -89,7 +89,7 @@ export const books = [
     image:
       "https://images.unsplash.com/photo-1604346782646-13dac014c258?ixid=MXwxMjA3fDB8MHx0b3BpYy1mZWVkfDJ8Ym84alFLVGFFMFl8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
     genre: "Fiction",
-    last_opened: "17 hours ago",
+    last_opened: "Date.now() - 24 * 60 * 60 * 1000",
   },
   {
     id: 6,
@@ -108,7 +108,7 @@ export const books = [
     image:
       "https://images.unsplash.com/photo-1604346782646-13dac014c258?ixid=MXwxMjA3fDB8MHx0b3BpYy1mZWVkfDJ8Ym84alFLVGFFMFl8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
     genre: "Programming",
-    last_opened: "17 hours ago",
+    last_opened: "Date.now() - 24 * 60 * 60 * 1000",
   },
   {
     id: 7,
@@ -126,7 +126,7 @@ export const books = [
     image:
       "https://images.unsplash.com/photo-1604346782646-13dac014c258?ixid=MXwxMjA3fDB8MHx0b3BpYy1mZWVkfDJ8Ym84alFLVGFFMFl8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
     genre: "Motivational",
-    last_opened: "17 hours ago",
+    last_opened: "Date.now() - 24 * 60 * 60 * 1000",
   },
   {
     id: 8,
@@ -144,6 +144,6 @@ export const books = [
     image:
       "https://images.unsplash.com/photo-1604346782646-13dac014c258?ixid=MXwxMjA3fDB8MHx0b3BpYy1mZWVkfDJ8Ym84alFLVGFFMFl8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
     genre: "Fiction",
-    last_opened: "17 hours ago",
+    last_opened: "Date.now() - 24 * 60 * 60 * 1000",
   },
 ];

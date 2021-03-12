@@ -6,16 +6,19 @@ to install all the packages and this app is a mix of styled components, external
 P.S this site is not optimized for mobile devices, Still working on it.
 
 TODO
-Nothing for now 🙏🏼
 
+- Scroll Modal Content
+- Sorting by Last Opened
 
 Done
+
 - Search Books by name
 - List View Sorting using Read Percentage
 - Theming using toggle button
 - Responsive
 - Search Text UI
 - Text Color using Theming for some components
+- Sorting using Book Title, Genre and Percentage.
 
   npm run start
 

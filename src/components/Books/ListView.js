@@ -4,6 +4,7 @@ import "./ListView.css";
 import { FiChevronDown } from "react-icons/fi";
 import { BsArrowUpDown } from "react-icons/bs";
 import styled from "styled-components";
+
 const ListViewWrapper = styled.div`
   margin: 40px;
   @media (max-width: 768px) {
@@ -13,39 +14,62 @@ const ListViewWrapper = styled.div`
 const ListView = () => {
   const { search, setSearch } = useContext(BooksContext);
   const [sortBooksData, setSort] = useState(false);
-  const sortBooks = useCallback(() => {
-    if (sortBooksData === true) {
-      let reSortBooks = search.sort((a, b) => {
-        return a.id - b.id;
-      });
-      setSearch(reSortBooks);
-      setSort(false);
-    } else {
-      let sortedBooks = search.sort((a, b) => {
-        return a.read_percentage - b.read_percentage;
-      });
-      setSearch(sortedBooks);
-      setSort(true);
-    }
-  }, [search, setSearch, sortBooksData]);
+  // TimeAgo.addDefaultLocale(en);
+
+  const sortBooks = useCallback(
+    (type) => {
+      if (sortBooksData === true) {
+        let reSortBooks = search.sort((a, b) => {
+          return a.id - b.id;
+        });
+        setSearch(reSortBooks);
+        setSort(false);
+      } else {
+        let sortedBooks;
+        if (type === "perc") {
+          sortedBooks = search.sort((a, b) => {
+            return a.read_percentage - b.read_percentage;
+          });
+        } else if (type === "author") {
+          sortedBooks = search.sort((a, b) => {
+            return ("" + a.title).localeCompare(b.title);
+          });
+        } else if (type === "genre") {
+          sortedBooks = search.sort((a, b) => {
+            return ("" + a.genre).localeCompare(b.genre);
+          });
+        } else if (type === "last") {
+          sortedBooks = search.sort((a, b) => {
+            return ("" + a.last_opened).localeCompare(b.last_opened);
+          });
+        }
+        setSearch(sortedBooks);
+        setSort(true);
+      }
+    },
+    [search, setSearch, sortBooksData]
+  );
 
   return (
     <ListViewWrapper>
       <section>
         <header>
-          <div className="col mobile__header">
+          <div
+            className="col mobile__header"
+            onClick={() => sortBooks("author")}
+          >
             Book Title & Author
             <span>
               <BsArrowUpDown />
             </span>
           </div>
-          <div className="col mobile">
+          <div className="col mobile" onClick={() => sortBooks("genre")}>
             Genre
             <span>
               <BsArrowUpDown />
             </span>
           </div>
-          <div className="col mobile__header" onClick={sortBooks}>
+          <div className="col mobile__header" onClick={() => sortBooks("perc")}>
             {/* <span> */}
             {sortBooksData === false ? (
               <>
@@ -60,7 +84,7 @@ const ListView = () => {
             )}
             {/* </span> */}
           </div>
-          <div className="col mobile">
+          <div className="col mobile" onClick={() => sortBooks("last")}>
             Last Opened
             <span>
               <BsArrowUpDown />

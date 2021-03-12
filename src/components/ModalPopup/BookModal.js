@@ -34,6 +34,7 @@ const customStyles = {
     transform: "translate(-50%, -50%)",
     padding: "2% 5% 8%",
     borderRadius: "30px",
+    overflowY: "scroll",
   },
 };
 const BookContainer = styled.div`
@@ -41,7 +42,16 @@ const BookContainer = styled.div`
   height: 500px;
   background: white;
   text-align: center;
+  padding: 30px;
+  @media (max-width: 768px) {
+    width: 100%;
+    height: 100%;
+    background: white;
+    text-align: center;
+    padding: 0px;
+  }
 `;
+
 const BookModal = (props) => {
   const { setModal, bookInfo } = useContext(BooksContext);
   const { image, title, author, description } = bookInfo;
